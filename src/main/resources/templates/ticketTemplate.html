@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"></meta>
+    <title>E - Ticket</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .booking {
+            margin-bottom: 40px;
+            border: 1px solid #ccc;
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        span
+        {
+            font-size: 20px;
+            font-style: italic;
+            color: rgb(24, 121, 185);
+        }
+       
+       
+    </style>
+</head>
+<body>
+    <h2>Bus E-Ticket</h2>
+    <div th:each="booking : ${booking}" class="booking">
+        <div class="booking-details">
+            <div>
+                <label style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-weight: bolder;font-size: 20px;">Passenger Name:</label>
+                 <span th:text="${booking.passengerName}"></span>
+            </div><br></br>
+
+            <div>
+                <label style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-weight: bolder;font-size: 20px;">Passenger Age:</label>
+                 <span th:text="${booking.passengerAge}"></span>
+            </div><br></br>
+
+            <div>
+                <label style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-weight: bolder;font-size: 20px;">Gender:</label> 
+                <span th:text="${booking.passengerGender}"></span>
+            </div><br></br>
+
+            <div>
+                <label style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-weight: bolder;font-size: 20px;">Contact: </label> 
+                <span th:text="${booking.mobileNumber}"></span>
+            </div><br></br>
+
+            <div>
+                <label style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-weight: bolder;font-size: 20px;">Email-Id:</label> 
+                 <span th:text="${booking.emailId}"></span>
+            </div><br></br>
+
+            <div>
+                <label style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-weight: bolder;font-size: 20px;">Bus No. :</label> 
+                 <span th:text="${booking.busNo}"></span>
+                </div><br></br>
+
+            <div>
+                <label style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-weight: bolder;font-size: 20px;">From: </label> 
+                 <span th:text="${booking.fromCity}"></span>
+                </div><br></br>
+
+            <div>
+                <label style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-weight: bolder;font-size: 20px;">To:</label> 
+                <span th:text="${booking.toCity}"></span>
+            </div><br></br>
+
+            <div>
+                <label style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-weight: bolder;font-size: 20px;">Travel Date:</label> 
+                <span th:text="${booking.date}"></span>
+            </div><br></br>
+
+
+            <div>
+                <label style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-weight: bolder;font-size: 20px;">Depart Time:</label> 
+                <span th:text="${booking.timing}"></span>
+            </div><br></br>
+
+
+            <div>
+                <label style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-weight: bolder;font-size: 20px;">No. of Persons:  </label> 
+                <span th:text="${booking.noOfPersons}"></span>
+            </div><br></br>
+
+
+            <div>
+                <label style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif; font-weight: bolder;font-size: 20px;">Total Ticket Fare:</label> 
+                 <span th:text="${booking.totalTicketPrice}"></span>
+                </div><br></br>
+
+        </div>
+    </div>
+</body>
+</html>

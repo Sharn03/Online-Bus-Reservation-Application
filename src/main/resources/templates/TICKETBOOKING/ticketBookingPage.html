@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Book Ticket</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Courgette&family=Dancing+Script:wght@400..700&family=Fjalla+One&family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Source+Serif+4:ital,opsz,wght@0,8..60,200..900;1,8..60,200..900&display=swap"
+        rel="stylesheet">
+
+    <style>
+        label {
+            font-family: "Noto Serif", serif;
+            font-optical-sizing: auto;
+            font-weight: bolder;
+            font-style: normal;
+            font-variation-settings:
+                "wdth" 100;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar sticky-top  navbar-expand-lg bg-body-tertiary"
+        style="color:rgb(230, 42, 42) ;background-color:rgb(0, 0, 0); margin: 0px;padding: 0px; box-shadow: 10px 10px rgb(230, 42, 42) ;">
+        <img src="https://i.pinimg.com/236x/73/95/df/7395df93b21ae61b219d90c1e3341b1d.jpg" alt="Logo" width="60"
+            height="50" style="border-radius: 50px; margin: 10PX 10PX; ">
+
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page"
+                            style="font-size: 40px; font-weight: 400;margin: auto 150px; color: rgb(230, 42, 42);letter-spacing: 5px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-weight: bolder;">
+                            <i style="margin-left: 250px;"> BOOK TICKET</i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <a th:href="@{/busReservation}" class="btn btn-light btn-lg mb-3" style="margin: 10px 20px;color: black;">Back
+            to Home</a>
+    </nav>
+
+
+    <div class="container">
+
+        <form action="#" th:action="@{/confirmBooking}" th:object="${booking}" method="POST"
+            style="width: 100%; margin-left: 20px; margin-top:20px" class="row g-3">
+
+
+            <input type="hidden" th:field="*{id}" class="form-control mb-4 col-8">
+
+
+            <div class="col-md-6">
+                <label for="formGroupExampleInput" class="form-label"
+                    style="margin-top:20px;margin-left: 20px;">Passenger Name</label>
+                <input type="text" th:field="*{passengerName}" class="form-control mb-4 col-8"
+                    style="margin-left: 20px; border-color: black;padding: 20px;font-size: 20px">
+            </div>
+
+            <div class="col-md-6">
+                <label for="formGroupExampleInput" class="form-label"
+                    style="margin-top:20px;margin-left: 20px;">Passenger Age</label>
+                <input type="number" th:field="*{passengerAge}" class="form-control mb-4 col-8"
+                    style="margin-left: 20px; border-color: black;padding: 20px;font-size: 20px">
+            </div>
+
+            <div class="col-md-6">
+                <label for="formGroupExampleInput" class="form-label"
+                    style="margin-top:20px;margin-left: 20px;">Contact</label>
+                <input type="text" th:field="*{mobileNumber}" class="form-control mb-4 col-8"
+                    style="margin-left: 20px; border-color: black;padding: 20px;font-size: 20px">
+            </div>
+
+            <div class="col-md-6">
+                <label for="formGroupExampleInput" class="form-label"
+                    style="margin-top:20px;margin-left: 20px;">Email-Id</label>
+                <input type="email" th:field="*{emailId}" class="form-control mb-4 col-8"
+                    style="margin-left: 20px; border-color: black;padding: 20px;font-size: 20px">
+            </div>
+
+            <div class="col-md-6">
+                <div class="radio-btn">
+                    <label for="formGroupExampleInput" class="form-label"
+                        style="margin-top:20px;margin-left: 20px;">Gender</label>
+                </div>
+                <div class="male-btn">
+                    <input name="radio" type="radio" th:field="*{passengerGender}" value="Male"
+                        style="margin-left: 20px; border-color:rgb(228, 64, 64);border-style: solid;border-width: 5px;padding: 20px;">
+                    Male
+                </div>
+
+                <div class="female-btn">
+                    <input name="radio" type="radio" th:field="*{passengerGender}" value="Female"
+                        style="margin-left: 20px; border-color:rgb(228, 64, 64);border-style: solid;border-width: 5px;padding: 20px;">
+                    Female
+                </div>
+
+                <div class="others-btn">
+                    <input name="radio" type="radio" th:field="*{passengerGender}" value="Others"
+                        style="margin-left: 20px; border-color:rgb(228, 64, 64);border-style: solid;border-width: 5px;padding: 20px;font-size: 20px">
+                    Others
+                </div>
+                <br>
+            </div>
+
+            <div class="col-md-6">
+                <label for="formGroupExampleInput" class="form-label" style="margin-top:20px;margin-left: 20px;">
+                    Bus No.</label>
+                <input type="number" th:field="*{busNo}" id="busNo" class="form-control mb-4 col-8"
+                    style="margin-left: 20px; border-color: black;padding: 20px;font-size: 20px" readonly>
+            </div>
+
+
+            <div class="col-md-6">
+                <label for="formGroupExampleInput" class="form-label" style="margin-top:20px;margin-left: 20px;">
+                    Bus Name</label>
+                <input type="text" th:field="*{busName}" id="busName" class="form-control mb-4 col-8"
+                    style="margin-left: 20px; border-color: black;padding: 20px;font-size: 20px" readonly>
+            </div>
+
+            <div class="col-md-6">
+                <label for="formGroupExampleInput" class="form-label" style="margin-top:20px;margin-left: 20px;">
+                    From city</label>
+                <input type="text" th:field="*{fromCity}" id="fromCity" class="form-control mb-4 col-8"
+                    style="margin-left: 20px; border-color: black;padding: 20px;font-size: 20px" readonly>
+            </div>
+
+            <div class="col-md-6">
+                <label for="formGroupExampleInput" class="form-label" style="margin-top:20px;margin-left: 20px;">
+                    To city</label>
+                <input type="text" th:field="*{toCity}" id="toCity" class="form-control mb-4 col-8"
+                    style="margin-left: 20px; border-color: black;padding: 20px;font-size: 20px" readonly>
+            </div>
+
+            <div class="col-md-6">
+                <label for="formGroupExampleInput" class="form-label" style="margin-top:20px;margin-left: 20px;">
+                    Date</label>
+                <input type="date" th:field="*{date}" id="date" class="form-control mb-4 col-8"
+                    style="margin-left: 20px; border-color: black;padding: 20px;font-size: 20px" readonly>
+            </div>
+
+            <div class="col-md-6">
+                <label for="formGroupExampleInput" class="form-label" style="margin-top:20px;margin-left: 20px;">
+                    Timing</label>
+                <input type="time" th:field="*{timing}" id="timing" class="form-control mb-4 col-8"
+                    style="margin-left: 20px; border-color: black;padding: 20px;font-size: 20px" readonly>
+            </div>
+
+            <div class="col-md-6">
+                <label for="formGroupExampleInput" class="form-label" style="margin-top:20px;margin-left: 20px;">
+                    Travel Duration</label>
+                <input type="text" th:field="*{travelDuration}" id="travelDuration" class="form-control mb-4 col-8"
+                    style="margin-left: 20px; border-color: black;padding: 20px;font-size: 20px" readonly>
+            </div>
+
+            <div class="col-md-6">
+                <label for="formGroupExampleInput" class="form-label" style="margin-top:20px;margin-left: 20px;">
+                    Maximum Seat Capacity</label>
+                <input type="text" th:field="*{totalSeats}" id="totalSeats" class="form-control mb-4 col-8"
+                    style="margin-left: 20px; border-color: black;padding: 20px;font-size: 20px" readonly>
+            </div>
+            
+            <div class="col-md-6">
+                <label for="formGroupExampleInput" class="form-label" style="margin-top:20px;margin-left: 20px;">
+                    No of Persons</label>
+                <input type="number" th:field="*{noOfPersons}" id="noOfPersons" min="1" max="5"  onchange="calculateTotalPrice()"
+                    class="form-control mb-4 col-8"
+                    style="margin-left: 20px; border-color: black;padding: 20px;font-size: 20px">
+            </div>
+
+            <div class="col-md-6">
+                <label for="formGroupExampleInput" class="form-label" style="margin-top:20px;margin-left: 20px;">
+                    Ticket Price Per Person</label>
+                <input type="number" th:field="*{ticketPrice}" id="ticketPricePerPerson" class="form-control mb-4 col-8"
+                    style="margin-left: 20px; border-color: black;padding: 20px;font-size: 20px" >
+            </div>
+
+            <div class="col-md-6">
+                <label for="formGroupExampleInput" class="form-label" style="margin-top:20px;margin-left: 20px;">
+                    Total Ticket Price</label>
+                <input type="text" th:field="*{totalTicketPrice}" id="totalTicketPrice" class="form-control mb-4 col-8"
+                    style="margin-left: 20px; border-color: black;padding: 20px;font-size: 20px">
+            </div>
+            
+         
+            <button type="submit" class="btn btn-dark col-6"
+                style="font-size: larger; letter-spacing: 2PX; margin-left: 20px;margin-bottom: 20px; background-color: black;">Confirm
+                Booking</button>
+
+
+        </form>
+        <hr>
+    </div>
+    <hr>
+
+    <script>
+
+        function calculateTotalPrice()
+         {
+            const persons = Number(document.getElementById("noOfPersons").value);
+            const ticketPricePerPerson = Number(document.getElementById("ticketPricePerPerson").value);
+            const totalPrice = persons * ticketPricePerPerson;
+            document.getElementById("totalTicketPrice").value = totalPrice.toFixed(2).toString();
+        }
+        
+        function calculateAvailableSeats()
+        {
+        	const persons = Number(document.getElementById("noOfPersons").value);
+        	const availableTickets = Number(document.getElementById("availableSeats").value);
+        	const result = availableTickets - persons;
+        	document.getElementById("availableSeats").value = result.toString();
+        }
+        
+
+    </script>
+
+</body>
+
+</html>

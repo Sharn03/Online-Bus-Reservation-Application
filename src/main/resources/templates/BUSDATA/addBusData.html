@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Add Bus Data</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+
+    <style>
+        label{
+            font-family: "DM Serif Display", serif;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+
+<body style="background-image: url(''); background-repeat: no-repeat;background-size: cover;">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary"
+        style="color:rgb(255, 255, 255);background-color: rgb(0, 0, 0); margin: 0px;padding: 0px; box-shadow: 10px 10px  rgb(180, 26, 26);">
+        <img src="https://i.pinimg.com/236x/73/95/df/7395df93b21ae61b219d90c1e3341b1d.jpg" alt="Logo" width="50"
+            height="50" style="border-radius:50px; margin: 10PX 10PX;">
+
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page"
+                            style="font-size: 40px; font-weight: 400;margin: auto 150px; color: rgb(180, 26, 26);letter-spacing: 5px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-weight: bolder;">
+                            <i style="margin-left: 100px;">BUS REGISTRATION FORM</i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- -----------------------------------END OF NAVBAR--------------------------------------------------------- -->
+
+    <div class="backgroundimage"
+        style="background-image: url('https://www.ourbus.com/blog/break-special-trips-for-hobart-william-smith-colleges/'); background-size: cover; background-repeat: no-repeat;">
+        <div class="container" style="margin: 50px 100px; background-color:rgba(255, 255, 255, 0.8);color: rgb(0, 0, 0);">
+           
+            <form action="#" th:action="@{/saveBusData}" th:object="${busData}" method="POST">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="busNo" class="form-label">Bus No.</label>
+                            <input type="text" id="busNo" th:field="*{busNo}" class="form-control mb-4">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="busName" class="form-label">Bus Name</label>
+                            <input type="text" id="busName" th:field="*{busName}" class="form-control mb-4">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="fromCity" class="form-label">From City</label>
+                            <input type="text" id="fromCity" th:field="*{fromCity}" class="form-control mb-4">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="toCity" class="form-label">To City</label>
+                            <input type="text" id="toCity" th:field="*{toCity}" class="form-control mb-4">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="date" class="form-label">Date</label>
+                            <input type="date" id="date" th:field="*{date}" class="form-control mb-4">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="timing" class="form-label">Timing</label>
+                            <input type="time" id="timing" th:field="*{timing}" class="form-control mb-4">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="totalSeats" class="form-label"> Max Seat Capacity</label>
+                            <input type="text" id="totalSeats" th:field="*{totalSeats}" class="form-control mb-4">
+                        </div>
+                    </div>
+                    
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="travelDuration" class="form-label">Travel Duration</label>
+                            <input type="text" id="travelDuration" th:field="*{travelDuration}" class="form-control mb-4">
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+                
+                <div class="row">
+                   
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="ticketPrice" class="form-label">Ticket Price</label>
+                            <input type="text" id="ticketPrice" th:field="*{ticketPrice}" class="form-control mb-4">
+                        </div>
+                    </div>
+                    
+                    
+                </div>
+
+                <button type="submit" class="btn btn-danger col-6" style="font-size: 20px;">SAVE</button>
+            </form>
+            <hr>
+        </div>
+    </div>
+</body>
+
+</html>

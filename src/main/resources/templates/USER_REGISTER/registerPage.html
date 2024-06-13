@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Register User </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+
+<body
+    style="background-image: url('https://images.unsplash.com/photo-1509749837427-ac94a2553d0e?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YnVzJTIwdHJhdmVsfGVufDB8fDB8fHww'); background-repeat: no-repeat;background-size: cover;">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary"
+        style="color:rgb(255, 255, 255);background-color: rgb(0, 0, 0); margin: 0px;padding: 0px; box-shadow: 10px 10px  rgb(180, 26, 26);">
+        <img src="https://i.pinimg.com/236x/73/95/df/7395df93b21ae61b219d90c1e3341b1d.jpg" alt="Logo" width="100"
+            height="100" style="border-radius:50px; margin: 10PX 10PX;  ">
+
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page"
+                            style="font-size: 40px; font-weight: 400;margin: auto 150px; color: rgb(180, 26, 26);letter-spacing: 5px;font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif; font-weight: bolder;">
+                            <i style="margin-left: 100px;"> YBM ONLINE BUS RESERVATION </i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </nav>
+    <!-- -----------------------------------END OF NAVBAR--------------------------------------------------------- -->
+
+    <div class="backgroundimage"
+        style="background-image: url('https://www.ourbus.com/blog/break-special-trips-for-hobart-william-smith-colleges/');">
+        <div class="row g-0" style="margin: auto 25%;">
+
+            <div class="col-md-8" style="margin: 50px 100px; background-color:rgba(0, 0, 0, 0.336);color: whitesmoke;">
+                <h2 style="margin: 40px AUTO;">USER REGISTRATION FORM</h2>
+                
+                <form action="#" th:action="@{/registration}" th:object="${userRegisteredDto}" method="POST">
+                    <label for="formGroupExampleInput" class="form-label">Name</label>
+                    <input type="text" th:field="*{name}" placeholder="Username" class="form-control mb-4 col-12">
+
+                    <label for="formGroupExampleInput" class="form-label">Email</label>
+                    <input type="email" th:field="*{emailId}" placeholder="Email-Id" class="form-control mb-4 col-12">
+
+                    <label for="formGroupExampleInput" class="form-label">Password</label>
+                    <input type="password" th:field="*{password}" placeholder="Password" class="form-control mb-4 col-12">
+
+      				  <label for="formGroupExampleInput" class="form-label">Role</label>
+                    <Select  class="form-control mb-4 col-12" th:field="*{role}">
+                        <option value="ADMIN" >ADMIN</option>
+                        <option Value="USER">USER</option>
+                    </Select>
+
+
+                    <button type="submit" class="btn btn-danger col-6">REGISTER</button>
+                    <span>Already Registered?
+                        <a href="#" th:href="@{/login}" style="color: rgb(180, 36, 36);">Register</a>
+                    </span>
+                </form>
+                <hr>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
